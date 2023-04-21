@@ -1,17 +1,24 @@
-// When a variable has been declared, 
-// the type with which it was declared remains the type of 
-// the variable whenever it is to be reassigned.
-var my_name = 'Lyte';
-var age = 17;
-var isFootballer = false;
-// We can also define the type a function argument should have.
-var circleArea = function (radius) {
-    return Math.PI * Math.pow(radius, 2);
+// Arrays
+// The type of data contained in an array at declaration cannot change later.
+// String array
+var names = ['lyte', 'forturne', 'blessing'];
+names.push('Sophia');
+// names.push(439) // Fails
+// Mixed array
+var gifts = ['car', 400200, 'watch'];
+gifts.push('cloth');
+gifts.push(5000);
+// gifts.push(true); // Fails
+// Objects
+// The objects contain properties which behave as variables within the object instance.
+// As such the property type cannot be redefined to another type once it has been declared
+var course = {
+    title: 'English',
+    lessons: 4,
+    published: true,
 };
-// console.log(circleArea('Lyte')) // Throws an error
-console.log(circleArea(7));
-function bio(name, age, showAge) {
-    if (showAge === void 0) { showAge = false; }
-    return 'They go by the name ' + name.toUpperCase() + ' and they\'re ' + age + ' years old.';
-}
-console.log(bio(my_name, age));
+course.lessons = 6;
+// course.lessons = '6'; // Fails
+// We also can't add on extra property that wasn't initially there in the object.
+//course.created_at = '2023'; // fails
+// The object can also be updated but it must match the initial structre at declaration.
