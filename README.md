@@ -1,1 +1,1 @@
-# learn-typescript
+# Learnt typescript with this repo
