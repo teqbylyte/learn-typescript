@@ -1,20 +1,21 @@
-let greet: Function;
+// Type Alias
 
-greet = (): void => {
-    console.log('Hello people!');
+type StringOrNum = string|number;
+
+type userObj = {name: string, age: StringOrNum, email: string, level: number}
+
+const logDetails = (name: string, uid: StringOrNum) => {
+    console.log(`${uid}: name`);
 }
 
-const sum = (a: number, b: number) => {
-    console.log(a + b);
+const getInfo = (user: userObj) => {
+    console.log(`This is ${user.name} - ${user.email} and he is ${user.age}`)
 }
 
-function getBio(name:string, sex = 'male', age?: number|string) {
-    console.log(name + ' is a ' + sex);
-    console.log(age);
+// Function Signatures
+
+let greet: (user: userObj, msg: string) => string;
+
+greet = (user, msg) => {
+    return `${user.name} says ${msg}`;
 }
-
-greet();
-
-sum(3, 5);
-
-getBio('Lyte')

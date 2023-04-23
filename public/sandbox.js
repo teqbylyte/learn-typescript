@@ -1,15 +1,13 @@
 "use strict";
+// Type Alias
+const logDetails = (name, uid) => {
+    console.log(`${uid}: name`);
+};
+const getInfo = (user) => {
+    console.log(`This is ${user.name} - ${user.email} and he is ${user.age}`);
+};
+// Function Signatures
 let greet;
-greet = () => {
-    console.log('Hello people!');
+greet = (user, msg) => {
+    return `${user.name} says ${msg}`;
 };
-const sum = (a, b) => {
-    console.log(a + b);
-};
-function getBio(name, sex = 'male', age) {
-    console.log(name + ' is a ' + sex);
-    console.log(age);
-}
-greet();
-sum(3, 5);
-getBio('Lyte');
