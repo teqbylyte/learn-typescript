@@ -1,17 +1,4 @@
-// Classes with Access Modifiers
-
-class Invoice {
-
-    constructor (
-        readonly receiver: string, 
-        private amount: number, 
-        public info: string
-    ) {}
-
-    getDescription(): string {
-        return `${this.receiver} has to pay ${this.amount} for ${this.info}.`;
-    }
-}
+import { Invoice } from "./classes/Invoice.js";
 
 let invoices: Invoice[] = [];
 
