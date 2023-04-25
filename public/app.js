@@ -1,5 +1,5 @@
 "use strict";
-// Classes 
+// Classes with Access Modifiers
 class Invoice {
     constructor(receiver, amount, info) {
         this.receiver = receiver;
@@ -7,14 +7,14 @@ class Invoice {
         this.info = info;
     }
     getDescription() {
-        return `${this.receiver} has to pay ${this.amount} for ${this.info}`;
+        return `${this.receiver} has to pay ${this.amount} for ${this.info}.`;
     }
 }
 let invoices = [];
 const firstInvoice = new Invoice('Lyte', 400, 'for house job');
 const secondInvoice = new Invoice('Chima', 700, 'for paintings');
 invoices.push(firstInvoice, secondInvoice);
-console.log(invoices);
+invoices.forEach((invoice, i) => console.log(`${i + 1}: ${invoice.getDescription()}`));
 let anchor = document.querySelector('a');
 console.log(anchor === null || anchor === void 0 ? void 0 : anchor.href); // Add null check cos it could be null
 let form = document.querySelector('form'); // Ensure that it is never null

@@ -1,19 +1,15 @@
-// Classes 
+// Classes with Access Modifiers
 
 class Invoice {
-    receiver: string;
-    amount: number;
-    info: string;
 
-
-    constructor (receiver: string, amount: number, info: string) {
-        this.receiver = receiver;
-        this.amount = amount;
-        this.info = info;
-    }
+    constructor (
+        readonly receiver: string, 
+        private amount: number, 
+        public info: string
+    ) {}
 
     getDescription(): string {
-        return `${this.receiver} has to pay ${this.amount} for ${this.info}`;
+        return `${this.receiver} has to pay ${this.amount} for ${this.info}.`;
     }
 }
 
@@ -24,7 +20,7 @@ const secondInvoice = new Invoice('Chima', 700, 'for paintings');
 
 invoices.push(firstInvoice, secondInvoice);
 
-console.log(invoices);
+invoices.forEach((invoice, i) => console.log(`${i+ 1}: ${invoice.getDescription()}`))
 
 
 let anchor = document.querySelector('a')
