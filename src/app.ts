@@ -1,30 +1,38 @@
-// Interface
+import { Invoice } from "./classes/Invoice.js";
+import { Payment } from "./classes/Payment.js";
+import { HasFormatter } from "./interfaces/HasFormatter";
 
-// This is used to enforce certain rules that are neccessary for classes or objects that implement it.
-interface Person {
-    name: string
-    age: number
-    sex: string;
+let order: HasFormatter;
+let shop: HasFormatter;
 
-    canDrink(): boolean
+let price = 40000;
 
-    spends(a: number): string
-}
+order = new Invoice('Lyte', price, 'Cars and accessories')
+shop = new Payment('Iwu', price)
 
-const person1: Person = {
-    name: 'Lyte',
-    age: 24,
-    sex: 'M',
+console.log(order.format());
+console.log(shop.format());
 
-    canDrink() {
-        return this.age > 18;
-    },
+let form = document.querySelector('.new-item-form') as HTMLFormElement;
 
-    spends(amount) {
-        return `They can spend ${amount}`;
+//inputs
+let type = document.querySelector('#type') as HTMLSelectElement;
+let details = document.querySelector('#details') as HTMLInputElement;
+let user = document.querySelector('#toFrom') as HTMLInputElement;
+let amount = document.querySelector('#amount') as HTMLInputElement;
+
+form.addEventListener('submit', (e: Event) => {
+    e.preventDefault();
+
+    let entry: HasFormatter;
+
+    if (type.value == 'invoice') {
+        entry = new Invoice(user.value, amount.valueAsNumber, details.value)
     }
-}
+    else {
+        entry = new Payment(user.value, amount.valueAsNumber)
+    }
 
-console.log(person1)
+    console.log(entry.format());
 
-console.log(person1.canDrink(), person1.spends(4000))
+})

@@ -1,14 +1,20 @@
 // Classes with Access Modifiers
 
-export class Invoice {
+import { HasFormatter } from "../interfaces/HasFormatter";
+
+export class Invoice implements HasFormatter {
 
     constructor (
-        readonly receiver: string, 
+        readonly owner: string, 
         private amount: number, 
         public info: string
     ) {}
 
     getDescription(): string {
-        return `${this.receiver} has to pay ${this.amount} for ${this.info}.`;
+        return `${this.owner} has to pay ${this.amount} for ${this.info}.`;
+    }
+
+    format(): string {
+        return this.owner + ` owes $` + this.amount + ' for ' + this.info;
     }
 }
