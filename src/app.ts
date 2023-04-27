@@ -1,42 +1,30 @@
-import { Invoice } from "./classes/Invoice.js";
+// Interface
 
-let invoices: Invoice[] = [];
+// This is used to enforce certain rules that are neccessary for classes or objects that implement it.
+interface Person {
+    name: string
+    age: number
+    sex: string;
 
-const firstInvoice = new Invoice('Lyte', 400, 'for house job');
-const secondInvoice = new Invoice('Chima', 700, 'for paintings');
+    canDrink(): boolean
 
-invoices.push(firstInvoice, secondInvoice);
+    spends(a: number): string
+}
 
-invoices.forEach((invoice, i) => console.log(`${i+ 1}: ${invoice.getDescription()}`))
+const person1: Person = {
+    name: 'Lyte',
+    age: 24,
+    sex: 'M',
 
+    canDrink() {
+        return this.age > 18;
+    },
 
-let anchor = document.querySelector('a')
+    spends(amount) {
+        return `They can spend ${amount}`;
+    }
+}
 
-console.log(anchor?.href) // Add null check cos it could be null
+console.log(person1)
 
-let form = document.querySelector('form')!; // Ensure that it is never null
-
-console.log(form.action);
-
-// Cast type because class could be used on none form element but you want to ensure it isn't
-form = document.querySelector('.new-item-form') as HTMLFormElement;
-
-console.log(form.children);
-
-//inputs
-let type = document.querySelector('#type') as HTMLSelectElement;
-
-let details = document.querySelector('#details') as HTMLInputElement;
-
-let amount = document.querySelector('#amount') as HTMLInputElement;
-
-form.addEventListener('submit', (e: Event) => {
-    e.preventDefault();
-
-    console.log(
-        type.value,
-        details.value,
-        amount.valueAsNumber,
-    )
-
-})
+console.log(person1.canDrink(), person1.spends(4000))
