@@ -9,12 +9,12 @@ export class Invoice implements HasFormatter {
         private amount: number, 
         public info: string
     ) {}
-
+ 
     getDescription(): string {
         return `${this.owner} has to pay ${this.amount} for ${this.info}.`;
     }
 
     format(): string {
-        return this.owner + ` owes $` + this.amount + ' for ' + this.info;
+        return `${this.owner} owes $${this.amount} for ${this.info}`;
     }
 }
