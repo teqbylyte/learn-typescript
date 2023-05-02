@@ -9,6 +9,6 @@ export class Invoice {
         return `${this.owner} has to pay ${this.amount} for ${this.info}.`;
     }
     format() {
-        return this.owner + ` owes $` + this.amount + ' for ' + this.info;
+        return `${this.owner} owes $${this.amount} for ${this.info}`;
     }
 }

@@ -1,4 +1,5 @@
 import { Invoice } from "./classes/Invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
 import { HasFormatter } from "./interfaces/HasFormatter";
 
@@ -21,6 +22,9 @@ let details = document.querySelector('#details') as HTMLInputElement;
 let user = document.querySelector('#toFrom') as HTMLInputElement;
 let amount = document.querySelector('#amount') as HTMLInputElement;
 
+const ul = document.getElementById('doc-list') as HTMLUListElement;
+const list = new ListTemplate(ul);
+
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
@@ -33,6 +37,5 @@ form.addEventListener('submit', (e: Event) => {
         entry = new Payment(user.value, amount.valueAsNumber)
     }
 
-    console.log(entry.format());
-
+    list.render(entry, type.value.toUpperCase())
 })
