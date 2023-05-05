@@ -1,6 +1,6 @@
 // Generics type of T (or any letter)
 // userObj which is extends must be the parameter type for the function
-// If extends isn't specified then no function will exist
+// If extends isn't specified then no parameter type will exist
 const addUid = (obj) => {
     let uid = Math.floor(Math.random() * 100);
     return Object.assign(Object.assign({}, obj), { uid });

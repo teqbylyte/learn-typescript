@@ -2,7 +2,7 @@ import { userObj } from "../sandbox";
 
 // Generics type of T (or any letter)
 // userObj which is extends must be the parameter type for the function
-// If extends isn't specified then no function will exist
+// If extends isn't specified then no parameter type will exist
 
 const addUid = <T extends userObj>(obj: T) => {
     let uid = Math.floor(Math.random() * 100);
