@@ -7,6 +7,7 @@ export class Payment implements HasFormatter {
     constructor (
         readonly receiver: string, 
         private amount: number, 
+        private info: string,
     ) {}
 
     format(): string {
