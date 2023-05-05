@@ -1,4 +1,3 @@
-"use strict";
 // Type Alias
 const logDetails = (name, uid) => {
     console.log(`${uid}: name`);
@@ -11,3 +10,4 @@ let greet;
 greet = (user, msg) => {
     return `${user.name} says ${msg}`;
 };
+export {};

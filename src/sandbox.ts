@@ -2,7 +2,7 @@
 
 type StringOrNum = string|number;
 
-type userObj = {name: string, age: StringOrNum, email: string, level: number}
+export type userObj = {name: string, age: StringOrNum, email?: string, level: number}
 
 const logDetails = (name: string, uid: StringOrNum) => {
     console.log(`${uid}: name`);

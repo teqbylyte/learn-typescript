@@ -1,3 +1,4 @@
+import './lessons/generics.js';
 import { Invoice } from "./classes/Invoice.js";
 import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
