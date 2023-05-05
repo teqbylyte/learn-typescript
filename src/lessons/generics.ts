@@ -1,4 +1,5 @@
 import { userObj } from "../sandbox";
+import { Resource, Status } from "./enums.js";
 
 // Generics type of T (or any letter)
 // userObj which is extends must be the parameter type for the function
@@ -25,22 +26,28 @@ console.log(user.uid, user);
 // Generics with Interfaces
 
 interface Response<T> {
-    message: string,
+    message: Status,
+    resource: Resource,
     data: T
 }
 
+// The type for the first decalaration of T will remain the same through out
+
 const userResponse: Response<userObj> = {
-    message: 'User fetched!',
-    data: person
+    message: Status.PENDING,
+    resource: Resource.LESSON,
+    data: user
 };
 
 const res: Response<object> = {
-    'message': 'Fetched successfully',
-    'data': user
+    'message': Status.FAILED,
+    resource: Resource.TASK,
+    'data': []
 }
 
 const errorResponse: Response<string[]> = {
-    message: 'Validation error.',
+    message: Status.SUCCESS,
+    resource: Resource.COURSE,
     data: ['Pin must be in digits', 'First name is required']
 }
 

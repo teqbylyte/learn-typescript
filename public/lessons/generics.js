@@ -1,3 +1,4 @@
+import { Resource, Status } from "./enums.js";
 // Generics type of T (or any letter)
 // userObj which is extends must be the parameter type for the function
 // If extends isn't specified then no parameter type will exist
@@ -12,17 +13,20 @@ let person = {
 };
 let user = addUid(person);
 console.log(user.uid, user);
+// The type for the first decalaration of T will remain the same through out
 const userResponse = {
-    message: 'User fetched!',
-    data: person
+    message: Status.PENDING,
+    resource: Resource.LESSON,
+    data: user
 };
 const res = {
-    'message': 'Fetched successfully',
-    'data': user
+    'message': Status.FAILED,
+    resource: Resource.TASK,
+    'data': []
 };
 const errorResponse = {
-    message: 'Validation error.',
+    message: Status.SUCCESS,
+    resource: Resource.COURSE,
     data: ['Pin must be in digits', 'First name is required']
 };
 console.log(userResponse, res, errorResponse);
-export {};
